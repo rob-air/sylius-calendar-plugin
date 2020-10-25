@@ -1,0 +1,9 @@
+rob_air_sylius_calendar_shop_load_events:
+    path: /calendar-load-events
+    defaults:
+        _controller: "@RobAirSyliusCalendarPlugin/Controller/Calendar/CalendarController:loadAction"
+
+rob_air_sylius_calendar_shop_booking_calendar:
+    path: /booking/calendar
+    defaults:
+        _controller: "@RobAirSyliusCalendarPlugin/Controller/Booking/BookingController:calendar"

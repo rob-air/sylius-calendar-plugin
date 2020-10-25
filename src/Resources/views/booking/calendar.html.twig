@@ -1,0 +1,18 @@
+{% extends '@!SyliusShop/layout.html.twig' %}
+
+{% block content %}
+    <div
+        id="calendar-holder"
+        data-events-url="{{ path('rob_air_sylius_calendar_shop_load_events') }}"
+    ></div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('calendar', null, 'shop') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('calendar', null, 'shop') }}
+{% endblock %}

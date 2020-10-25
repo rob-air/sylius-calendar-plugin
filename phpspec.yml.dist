@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: RobAir\SyliusCalendarPlugin
+        psr4_prefix: RobAir\SyliusCalendarPlugin
