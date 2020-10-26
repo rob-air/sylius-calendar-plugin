@@ -7,12 +7,13 @@ namespace RobAir\SyliusCalendarPlugin\Controller\Calendar;
 use CalendarBundle\CalendarEvents;
 use CalendarBundle\Event\CalendarEvent;
 use CalendarBundle\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface as ContractsEventDispatcherInterface;
 
-class CalendarController
+class CalendarController extends AbstractController
 {
     /**
      * @var SerializerInterface
@@ -50,16 +51,16 @@ class CalendarController
         $response->setContent($content);
         $response->setStatusCode(empty($content) ? Response::HTTP_NO_CONTENT : Response::HTTP_OK);
 
-//        dump($response);
+        dump($this->eventDispatcher->getListeners());
         return $response;
     }
 
     public function dispatchWithBC($event, ?string $eventName = null)
     {
-//        if ($this->eventDispatcher instanceof ContractsEventDispatcherInterface) {
-            return $this->eventDispatcher->dispatch($event, $eventName);
-//        }
+        if ($this->eventDispatcher instanceof ContractsEventDispatcherInterface) {
+            return $this->eventDispatcher->dispatch($event/*, $eventName*/);
+        }
 
-//        return $this->eventDispatcher->dispatch($eventName, $event);
+        return $this->eventDispatcher->dispatch($eventName, $event);
     }
 }
