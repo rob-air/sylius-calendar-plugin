@@ -1,0 +1,14 @@
+rob_air_calendar_plugin.booking:
+    resource: |
+        alias: rob_air_calendar_plugin.booking
+        section: admin
+        path: /booking
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: rob_air_calendar_plugin.booking
+        vars:
+            all:
+                subheader: rob_air_calendar_plugin.ui.booking
+            index:
+                icon: 'file image outline'
+    type: sylius.resource

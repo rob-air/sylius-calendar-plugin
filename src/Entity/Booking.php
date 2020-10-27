@@ -1,13 +1,15 @@
 <?php
 
-namespace RobAir\SyliusCalendarPlugin\Entity\Booking;
+namespace RobAir\SyliusCalendarPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
  * @ORM\Entity(repositoryClass="RobAir\SyliusCalendarPlugin\Repository\BookingRepository")
+ * @ORM\Table (name="robair_calendar_booking")
  */
-class Booking
+class Booking implements ResourceInterface
 {
     /**
      * @ORM\Column(type="integer")
