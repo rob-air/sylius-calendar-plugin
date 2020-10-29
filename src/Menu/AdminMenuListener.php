@@ -16,9 +16,15 @@ final class AdminMenuListener
         ;
 
         $newSubmenu
-            ->addChild('new-subitem')
-            ->setLabel('booking')
-            ->setUri('/admin/booking')
+            ->addChild('booking')
+            ->setLabel('Booking')
+            ->setUri('/admin/bookings')
+        ;
+
+        $newSubmenu
+            ->addChild('calendar')
+            ->setLabel('Calendar')
+            ->setUri('/admin/calendars')
         ;
     }
 }

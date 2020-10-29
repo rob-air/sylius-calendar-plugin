@@ -33,6 +33,29 @@ class Booking implements ResourceInterface
      */
     private $title;
 
+    /**
+     * @var Calendar
+     * @ORM\ManyToOne (targetEntity="RobAir\SyliusCalendarPlugin\Entity\Calendar", inversedBy="bookings")
+     * @ORM\JoinColumn (name="calendar_id", referencedColumnName="id")
+     */
+    private $calendar;
+
+    /**
+     * @return Calendar
+     */
+    public function getCalendar(): ?Calendar
+    {
+        return $this->calendar;
+    }
+
+    /**
+     * @param Calendar $calendar
+     */
+    public function setCalendar(Calendar $calendar): void
+    {
+        $this->calendar = $calendar;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

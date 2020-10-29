@@ -1,9 +1,23 @@
-rob_air_sylius_calendar_shop_load_events:
-    path: /calendar-load-events
-    defaults:
-        _controller: rob_air_sylius_calendar.controller.calendar.calendar_controller::loadAction
+#rob_air_sylius_calendar_shop_load_events:
+#    path: /calendar-load-events
+#    defaults:
+#        _controller: rob_air_sylius_calendar.controller.calendar_controller::loadAction
+#
+#rob_air_sylius_calendar_shop_booking_calendar:
+#    path: /booking/calendar
+#    defaults:
+#        _controller: rob_air_sylius_calendar.controller.booking_controller::indexAction
 
-rob_air_sylius_calendar_shop_booking_calendar:
-    path: /booking/calendar
-    defaults:
-        _controller: rob_air_sylius_calendar.controller.booking.booking_controller::calendar
+rob_air_sylius_calendar_shop_booking:
+    resource: |
+        alias: rob_air_sylius_calendar.booking
+        section: shop
+        path: /bookings
+        templates: "@RobAirSyliusCalendarPlugin/booking"
+        grid: rob_air_sylius_calendar.shop.grid.booking
+        vars:
+            all:
+                subheader: rob_air_sylius_calendar.ui.booking
+            index:
+                icon: 'file image outline'
+    type: sylius.resource

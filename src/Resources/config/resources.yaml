@@ -1,6 +1,18 @@
 sylius_resource:
     resources:
-        rob_air_calendar_plugin.booking:
+        rob_air_sylius_calendar.booking:
             driver: doctrine/orm
             classes:
                 model: RobAir\SyliusCalendarPlugin\Entity\Booking
+                controller: RobAir\SyliusCalendarPlugin\Controller\BookingController
+                repository: RobAir\SyliusCalendarPlugin\Repository\BookingRepository
+                factory: RobAir\SyliusCalendarPlugin\Factory\BookingFactory
+                form: RobAir\SyliusCalendarPlugin\Form\Type\BookingType
+                
+        rob_air_sylius_calendar.calendar:
+            driver: doctrine/orm
+            classes:
+                model: RobAir\SyliusCalendarPlugin\Entity\Calendar
+                controller: RobAir\SyliusCalendarPlugin\Controller\CalendarController
+                repository: RobAir\SyliusCalendarPlugin\Repository\CalendarRepository
+                factory: RobAir\SyliusCalendarPlugin\Factory\CalendarFactory

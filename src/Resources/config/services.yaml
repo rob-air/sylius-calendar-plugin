@@ -1,17 +1,16 @@
 services:
 
-    rob_air_sylius_calendar.controller.booking.booking_controller:
-        class: RobAir\SyliusCalendarPlugin\Controller\Booking\BookingController
-        public: true
-        autowire: true
+    rob_air_sylius_calendar.controller.booking_controller:
+        class: RobAir\SyliusCalendarPlugin\Controller\BookingController
+#        public: true
+#        autowire: false
+#        tags: ['controller.service_arguments']
 
-    rob_air_sylius_calendar.controller.calendar.calendar_controller:
-        class: RobAir\SyliusCalendarPlugin\Controller\Calendar\CalendarController
-        arguments:
-            - '@Symfony\Component\EventDispatcher\EventDispatcherInterface'
-            - '@CalendarBundle\Serializer\Serializer'
-        public: true
-        autowire: true
+    rob_air_sylius_calendar.controller.calendar_controller:
+        class: RobAir\SyliusCalendarPlugin\Controller\CalendarController
+#        public: true
+#        autowire: false
+#        tags: ['controller.service_arguments']
         
     rob_air_sylius_calendar.listener.admin.menu_builder:
         class: RobAir\SyliusCalendarPlugin\Menu\AdminMenuListener

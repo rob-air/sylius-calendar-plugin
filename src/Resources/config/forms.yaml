@@ -1,0 +1,13 @@
+services:
+    rob_air_sylius_calendar_form_type_bookingtype:
+        class: RobAir\SyliusCalendarPlugin\Form\Type\BookingType
+        arguments:
+            - "%rob_air_sylius_calendar.model.booking.class%"
+            - ['rob_air_sylius_calendar']
+        tags:
+            - { name: form.type }
+    
+    #rob_air_sylius_calendar.form.calendar.type:
+    #    class: RobAir\SyliusCalendarPlugin\Form\Extension\CalendarTypeExtension
+    #    tags:
+    #        - { name: form.type_extension, extended_type: Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType }

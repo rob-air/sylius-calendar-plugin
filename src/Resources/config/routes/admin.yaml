@@ -1,14 +1,49 @@
-rob_air_calendar_plugin.booking:
+rob_air_sylius_calendar.admin.booking:
     resource: |
-        alias: rob_air_calendar_plugin.booking
+        alias: rob_air_sylius_calendar.booking
         section: admin
-        path: /booking
+        path: /bookings
         templates: SyliusAdminBundle:Crud
         redirect: update
-        grid: rob_air_calendar_plugin.booking
+        grid: rob_air_sylius_calendar.admin.grid.booking
         vars:
             all:
-                subheader: rob_air_calendar_plugin.ui.booking
+                subheader: rob_air_sylius_calendar.ui.booking
             index:
                 icon: 'file image outline'
     type: sylius.resource
+
+rob_air_sylius_calendar.admin.calendar:
+    resource: |
+        alias: rob_air_sylius_calendar.calendar
+        section: admin
+        path: /calendars
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: rob_air_sylius_calendar.admin.grid.calendar
+        vars:
+            all:
+                subheader: rob_air_sylius_calendar.ui.calendar
+            index:
+                icon: 'file image outline'
+    type: sylius.resource
+
+rob_air_sylius_calendar.admin.booking.new:
+    path: /bookings/new
+    methods: [GET, POST]
+    defaults:
+        _controller: rob_air_sylius_calendar.controller.booking_controller:createAction
+        _sylius:
+            section: admin
+            permission: true
+            factory:
+                method: createWithCalendar
+            templates:
+                form: "@RobAirSyliusCalendarPlugin/Crud/_form.html.twig"
+            redirect: rob_air_sylius_calendar.admin.booking
+            form:
+                options:
+                    validation_groups:
+                        - sylius
+            vars:
+                subheader: rob_air_sylius_calendar.ui.booking
