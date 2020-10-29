@@ -1,0 +1,5 @@
+{% extends '@SyliusUi/Form/theme.html.twig' %}
+
+{% block rob_air_sylius_calendar_booking_row %}
+    {{ form_row(form, {'remote_url': path('bitbag_sylius_cms_plugin_admin_ajax_section_by_name_phrase'), 'load_edit_url': path('bitbag_sylius_cms_plugin_admin_ajax_section_by_code')}) }}
+{% endblock %}

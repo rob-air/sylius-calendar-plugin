@@ -76,3 +76,17 @@ sylius_grid:
                 item:
                     show:
                         type: show
+
+        rob_air_sylius_calendar.shop.grid.calendar:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: RobAir\SyliusCalendarPlugin\Entity\Calendar
+            fields:
+                title:
+                    type: string
+                    label: sylius.ui.title
+            actions:
+                item:
+                    show:
+                        type: show

@@ -21,3 +21,17 @@ rob_air_sylius_calendar_shop_booking:
             index:
                 icon: 'file image outline'
     type: sylius.resource
+
+rob_air_sylius_calendar_shop_calendar:
+    resource: |
+        alias: rob_air_sylius_calendar.calendar
+        section: shop
+        path: /calendars
+        templates: "@RobAirSyliusCalendarPlugin/calendar"
+        grid: rob_air_sylius_calendar.shop.grid.calendar
+        vars:
+            all:
+                subheader: rob_air_sylius_calendar.ui.calendar
+            index:
+                icon: 'file image outline'
+    type: sylius.resource

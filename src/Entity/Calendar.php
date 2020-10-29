@@ -31,6 +31,22 @@ class Calendar implements ResourceInterface
      */
     private $bookings;
 
+    /**
+     * @return ArrayCollection|Booking[]
+     */
+    public function getBookings()
+    {
+        return $this->bookings;
+    }
+
+    /**
+     * @param ArrayCollection|Booking[] $bookings
+     */
+    public function setBookings($bookings): void
+    {
+        $this->bookings = $bookings;
+    }
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();

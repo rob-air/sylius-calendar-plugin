@@ -1,0 +1,22 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+{% block content %}
+    {#    {% include '@SyliusShop/Product/Index/_header.html.twig' %}#}
+    <div class="ui hidden divider"></div>
+    <div class="ui stackable grid">
+        <div class="four wide column">
+            {#            {% include '@SyliusShop/Product/Index/_sidebar.html.twig' %}#}
+        </div>
+        <div class="twelve wide column">
+            <div class="ui segment spaceless sylius-grid-table-wrapper">
+                <h3>{{ calendar.title }} ({{ calendar.Bookings|length }})</h3>
+                <ul>
+                    {% for booking in calendar.bookings %}
+{#                    <li><span>{{ booking.title }}</span></li>#}
+                        {% include '@RobAirSyliusCalendarPlugin/booking/_single.html.twig' %}
+                    {% endfor %}
+                </ul>
+            </div>
+            {#            {% include '@SyliusUi/Grid/_default.html.twig' %}#}
+        </div>
+    </div>
+{% endblock %}
