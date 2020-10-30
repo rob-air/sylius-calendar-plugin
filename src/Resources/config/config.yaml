@@ -42,11 +42,16 @@ sylius_grid:
                 title:
                     type: string
                     label: sylius.ui.title
+                color:
+                    type: string
+                    label: sylius.ui.color
             actions:
                 main:
                     create:
                         type: create
                 item:
+                    show:
+                        type: show
                     update:
                         type: update
                     delete:

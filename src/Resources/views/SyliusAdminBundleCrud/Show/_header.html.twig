@@ -1,0 +1,8 @@
+<div class="ui stackable two column grid">
+    <div class="column">
+        {% include configuration.vars.templates.header_title|default('@RobAirSyliusCalendarPlugin/SyliusAdminBundleCrud/Show/_headerTitle.html.twig') %}
+        {% include configuration.vars.templates.breadcrumb|default('@SyliusAdmin/Crud/Index/_breadcrumb.html.twig') %}
+
+        {{ sylius_template_event([event_prefix ~ '.header', 'sylius.admin.index.header'], _context) }}
+    </div>
+</div>

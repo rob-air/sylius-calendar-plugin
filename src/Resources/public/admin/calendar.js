@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const eventsGetUrl = calendarEl.dataset.eventsGetUrl;
   const eventsPushUrl = calendarEl.dataset.eventsPushUrl;
+  const calendarId = calendarEl.dataset.calendarId;
 
   var calendar = new Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -24,10 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
         url: eventsGetUrl,
         method: 'POST',
         extraParams: {
-          filters: JSON.stringify({}),
+          filters: JSON.stringify({calendar: calendarId}),
         },
         failure() {
-          // alert("There was an error while fetching FullCalendar!");
         },
       },
     ],

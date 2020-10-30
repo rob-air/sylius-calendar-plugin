@@ -18,7 +18,7 @@ rob_air_sylius_calendar.admin.calendar:
         alias: rob_air_sylius_calendar.calendar
         section: admin
         path: /calendars
-        templates: SyliusAdminBundle:Crud
+        templates: "@RobAirSyliusCalendarPlugin/SyliusAdminBundleCrud/"
         redirect: update
         grid: rob_air_sylius_calendar.admin.grid.calendar
         vars:

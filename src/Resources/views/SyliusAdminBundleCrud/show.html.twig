@@ -1,0 +1,25 @@
+{% extends '@SyliusAdmin/layout.html.twig' %}
+
+{% set header = configuration.vars.header|default(metadata.applicationName~'.ui.show'~metadata.name) %}
+{% set event_prefix = metadata.applicationName ~ '.admin.' ~ metadata.name ~ '.show' %}
+
+{% block title %}{{ header|trans }} {{ parent() }}{% endblock %}
+
+{#{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}#}
+
+{% block content %}
+    {% include '@RobAirSyliusCalendarPlugin/SyliusAdminBundleCrud/Show/_header.html.twig' %}
+    <div class="ui segment">
+    {% include '@RobAirSyliusCalendarPlugin/SyliusAdminBundleCrud/Show/_calendar.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('calendar', null, 'admin') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('calendar', null, 'admin') }}
+{% endblock %}
