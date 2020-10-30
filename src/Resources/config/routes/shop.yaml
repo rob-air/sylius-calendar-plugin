@@ -35,3 +35,14 @@ rob_air_sylius_calendar_shop_calendar:
             index:
                 icon: 'file image outline'
     type: sylius.resource
+
+#rob_air_sylius_calendar_shop_booking_show:
+#    path: /bookings/show/{id}
+#    defaults:
+#        _controller: rob_air_sylius_calendar.controller.booking_controller::showAction
+
+rob_air_sylius_calendar_shop_booking_load:
+    path: /bookings/load
+    defaults:
+        _controller: rob_air_sylius_calendar.controller.booking::loadAction
+        

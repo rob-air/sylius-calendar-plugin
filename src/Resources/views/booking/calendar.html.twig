@@ -3,7 +3,7 @@
 {% block content %}
     <div
         id="calendar-holder"
-        data-events-url="{{ path('rob_air_sylius_calendar_shop_load_events') }}"
+        data-events-url="{{ path('rob_air_sylius_calendar_shop_booking_load') }}"
     ></div>
 {% endblock %}
 
@@ -15,4 +15,33 @@
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('calendar', null, 'shop') }}
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            var calendarEl = document.getElementById('calendar-holder');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                defaultView: 'dayGridMonth',
+                editable: true,
+                eventSources: [{
+                    url: "{{ path('rob_air_sylius_calendar_shop_booking_load') }}",
+                    method: "POST",
+                    extraParams: {
+                        filters: JSON.stringify({})
+                    },
+                    failure: () => {
+                        // alert("There was an error while fetching FullCalendar!");
+                    },
+                }],
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay',
+                },
+                    plugins: [ 'interaction', 'dayGrid', 'timeGrid' ], // https://fullcalendar.io/docs/plugin-index
+                    timeZone: 'UTC',
+            });
+            calendar.render();
+        });
+    </script>
 {% endblock %}
