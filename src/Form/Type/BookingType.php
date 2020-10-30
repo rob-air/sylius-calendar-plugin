@@ -41,10 +41,7 @@ final class BookingType extends AbstractResourceType
                 'label' => 'Calendar',
                 'class' => 'RobAir\SyliusCalendarPlugin\Entity\Calendar',
                 'choice_label' => 'title',
-                'choice_value' => 'id',
-//                'resource' => 'rob_air_sylius_calendar.calendar',
-//                'choice_name' => 'title',
-//                'multiple' => false
+                'choice_value' => 'id'
             ])
 
         ;

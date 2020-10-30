@@ -12,6 +12,13 @@ use Sylius\Component\Resource\Model\ResourceInterface;
  */
 class Calendar implements ResourceInterface
 {
+
+    public function __construct()
+    {
+        $this->bookings = new ArrayCollection();
+        $this->color = '#FFFFFF';
+    }
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
@@ -32,6 +39,28 @@ class Calendar implements ResourceInterface
     private $bookings;
 
     /**
+     * @var string
+     * @ORM\Column (type="string", length=7, options={"default":"#FFFFFF"})
+     */
+    private $color;
+
+    /**
+     * @return string
+     */
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor(string $color): void
+    {
+        $this->color = $color;
+    }
+
+    /**
      * @return ArrayCollection|Booking[]
      */
     public function getBookings()
@@ -45,11 +74,6 @@ class Calendar implements ResourceInterface
     public function setBookings($bookings): void
     {
         $this->bookings = $bookings;
-    }
-
-    public function __construct()
-    {
-        $this->bookings = new ArrayCollection();
     }
 
     public function getId(): ?int
