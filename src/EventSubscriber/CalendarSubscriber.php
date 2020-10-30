@@ -63,14 +63,13 @@ class CalendarSubscriber implements EventSubscriberInterface
 
             $bookingEvent->setOptions([
                 'backgroundColor' => $booking->getCalendar()->getColor(),
-                'borderColor' => $booking->getCalendar()->getColor()
-            ]);
-            $bookingEvent->addOption(
-                'url',
-                $this->router->generate('rob_air_sylius_calendar_shop_booking_show', [
+                'borderColor' => $booking->getCalendar()->getColor(),
+                'calendarId' => $booking->getCalendar()->getId(),
+                'bookingId' => $booking->getId(),
+                'url' => $this->router->generate('rob_air_sylius_calendar_shop_booking_show', [
                     'id' => $booking->getId(),
                 ])
-            );
+            ]);
 
             // finally, add the event to the CalendarEvent to fill the calendar
             $calendar->addEvent($bookingEvent);
