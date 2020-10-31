@@ -58,6 +58,28 @@ class Booking implements ResourceInterface, TimestampableInterface
     private $attendants;
 
     /**
+     * @var integer
+     * @ORM\Column (type="smallint", nullable=false, options={"default"="10"})
+     */
+    private $maxAttendees;
+
+    /**
+     * @return int
+     */
+    public function getMaxAttendees(): int
+    {
+        return $this->maxAttendees;
+    }
+
+    /**
+     * @param int $maxAttendees
+     */
+    public function setMaxAttendees(int $maxAttendees): void
+    {
+        $this->maxAttendees = $maxAttendees;
+    }
+
+    /**
      * @return ArrayCollection|Attendant[]
      */
     public function getAttendants()
