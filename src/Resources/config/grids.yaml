@@ -1,0 +1,114 @@
+sylius_grid:
+    grids:
+        rob_air_sylius_calendar.admin.grid.booking:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: RobAir\SyliusCalendarPlugin\Entity\Booking
+            fields:
+                beginAt:
+                    type: datetime
+                    label: sylius.ui.starts_at
+                endAt:
+                    type: datetime
+                    label: sylius.ui.ends_at
+                calendar:
+                    type: string
+                    label: calendar
+                title:
+                    type: string
+                    label: sylius.ui.title
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+
+        rob_air_sylius_calendar.admin.grid.calendar:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: RobAir\SyliusCalendarPlugin\Entity\Calendar
+            fields:
+                title:
+                    type: string
+                    label: sylius.ui.title
+                color:
+                    type: string
+                    label: sylius.ui.color
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    show:
+                        type: show
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+
+        rob_air_sylius_calendar.shop.grid.booking:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: RobAir\SyliusCalendarPlugin\Entity\Booking
+            fields:
+                beginAt:
+                    type: datetime
+                    label: sylius.ui.starts_at
+                endAt:
+                    type: datetime
+                    label: sylius.ui.ends_at
+                title:
+                    type: string
+                    label: sylius.ui.title
+                calendar:
+                    type: string
+                    label: calendar
+            actions:
+                item:
+                    show:
+                        type: show
+
+        rob_air_sylius_calendar.shop.grid.calendar:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: RobAir\SyliusCalendarPlugin\Entity\Calendar
+            fields:
+                title:
+                    type: string
+                    label: sylius.ui.title
+            actions:
+                item:
+                    show:
+                        type: show
+
+        rob_air_sylius_calendar.admin.grid.attendant:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: RobAir\SyliusCalendarPlugin\Entity\Attendant
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                defaultCalendar:
+                    type: string
+                    label: sylius.ui.calendar
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    show:
+                        type: show
+                    update:
+                        type: update
+                    delete:
+                        type: delete

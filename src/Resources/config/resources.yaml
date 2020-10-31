@@ -16,3 +16,12 @@ sylius_resource:
                 controller: RobAir\SyliusCalendarPlugin\Controller\CalendarController
                 repository: RobAir\SyliusCalendarPlugin\Repository\CalendarRepository
                 factory: RobAir\SyliusCalendarPlugin\Factory\CalendarFactory
+
+        rob_air_sylius_calendar.attendant:
+            driver: doctrine/orm
+            classes:
+                model: RobAir\SyliusCalendarPlugin\Entity\Attendant
+                controller: RobAir\SyliusCalendarPlugin\Controller\AttendantController
+                repository: RobAir\SyliusCalendarPlugin\Repository\AttendantRepository
+                factory: RobAir\SyliusCalendarPlugin\Factory\AttendantFactory
+                form: RobAir\SyliusCalendarPlugin\Form\Type\AttendantType

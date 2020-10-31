@@ -45,6 +45,13 @@ class Calendar implements ResourceInterface, TimestampableInterface
     private $bookings;
 
     /**
+     * @var Attendant[]|ArrayCollection
+     * @ORM\OneToMany (targetEntity="RobAir\SyliusCalendarPlugin\Entity\Attendant", mappedBy="defaultCalendar")
+     * @ORM\OrderBy ({"createdAt":"ASC"})
+     */
+    private $assignedAttendants;
+
+    /**
      * @var string
      * @ORM\Column (type="string", length=7, options={"default":"#FFFFFF"})
      */

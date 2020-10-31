@@ -2,6 +2,7 @@
 
 namespace RobAir\SyliusCalendarPlugin\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
@@ -45,6 +46,32 @@ class Booking implements ResourceInterface, TimestampableInterface
      * @ORM\JoinColumn (name="calendar_id", referencedColumnName="id")
      */
     private $calendar;
+
+    /**
+     * @var Attendant[]|ArrayCollection
+     * @ORM\ManyToMany (targetEntity="RobAir\SyliusCalendarPlugin\Entity\Attendant", inversedBy="bookings")
+     * @ORM\JoinTable (name="robair_calendar__bookings_attendants",
+     *      joinColumns={@ORM\JoinColumn(name="booking_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="attendant_id", referencedColumnName="id")}
+     * )
+     */
+    private $attendants;
+
+    /**
+     * @return ArrayCollection|Attendant[]
+     */
+    public function getAttendants()
+    {
+        return $this->attendants;
+    }
+
+    /**
+     * @param ArrayCollection|Attendant[] $attendants
+     */
+    public function setAttendants($attendants): void
+    {
+        $this->attendants = $attendants;
+    }
 
     /** @var \DateTimeInterface|null
      *  @ORM\Column(name="created_at", type="datetime", nullable=true)

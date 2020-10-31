@@ -6,7 +6,15 @@ services:
             - ['rob_air_sylius_calendar']
         tags:
             - { name: form.type }
-    
+
+    rob_air_sylius_calendar_form_type_attendanttype:
+        class: RobAir\SyliusCalendarPlugin\Form\Type\AttendantType
+        arguments:
+            - "%rob_air_sylius_calendar.model.attendant.class%"
+            - [ 'rob_air_sylius_calendar' ]
+        tags:
+            - { name: form.type }
+
     #rob_air_sylius_calendar.form.calendar.type:
     #    class: RobAir\SyliusCalendarPlugin\Form\Extension\CalendarTypeExtension
     #    tags:

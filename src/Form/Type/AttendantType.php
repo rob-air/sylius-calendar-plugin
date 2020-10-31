@@ -22,43 +22,26 @@ use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
 
-final class BookingType extends AbstractResourceType
+final class AttendantType extends AbstractResourceType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('beginAt', DateTimeType::class, [
-                'label' => 'sylius.ui.begins_at',
-                'date_widget' => 'single_text',
-                'time_widget' => 'single_text',
+            ->add('name', TextType::class, [
+                'label' => 'sylius.ui.name'
             ])
-            ->add('endAt', DateTimeType::class, [
-                'label' => 'sylius.ui.ends_at',
-                'date_widget' => 'single_text',
-                'time_widget' => 'single_text',
-            ])
-            ->add('title', TextType::class, [
-                'label' => 'sylius.ui.title'
-            ])
-            ->add('calendar', EntityType::class, [
-                'label' => 'Calendar',
+            ->add('defaultCalendar', EntityType::class, [
+                'label' => 'default Calendar',
                 'class' => 'RobAir\SyliusCalendarPlugin\Entity\Calendar',
                 'choice_label' => 'title',
                 'choice_value' => 'id'
-            ])
-            ->add('attendants', EntityType::class, [
-                'label' => 'Attendants',
-                'class' => 'RobAir\SyliusCalendarPlugin\Entity\Attendant',
-                'choice_label' => 'name',
-                'choice_value' => 'id',
-                'multiple' => 'true'
             ])
         ;
     }
 
     public function getBlockPrefix(): string
     {
-        return 'rob_air_sylius_calendar_booking';
+        return 'rob_air_sylius_calendar_attendant';
     }
 
 }

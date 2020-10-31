@@ -17,14 +17,20 @@ final class AdminMenuListener
 
         $newSubmenu
             ->addChild('booking')
-            ->setLabel('Booking')
+            ->setLabel('Bookings')
             ->setUri('/admin/bookings')
         ;
 
         $newSubmenu
             ->addChild('calendar')
-            ->setLabel('Calendar')
+            ->setLabel('Calendars')
             ->setUri('/admin/calendars')
+        ;
+
+        $newSubmenu
+            ->addChild('attendant')
+            ->setLabel('Attendants')
+            ->setUri('/admin/attendants')
         ;
     }
 }
