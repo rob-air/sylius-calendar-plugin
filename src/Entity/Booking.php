@@ -4,13 +4,19 @@ namespace RobAir\SyliusCalendarPlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\TimestampableInterface;
+use Sylius\Component\Resource\Model\TimestampableTrait;
 
 /**
  * @ORM\Entity(repositoryClass="RobAir\SyliusCalendarPlugin\Repository\BookingRepository")
  * @ORM\Table (name="robair_calendar_booking")
+ * @ORM\HasLifecycleCallbacks()
  */
-class Booking implements ResourceInterface
+class Booking implements ResourceInterface, TimestampableInterface
 {
+
+    use TimestampableTrait;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
@@ -39,6 +45,21 @@ class Booking implements ResourceInterface
      * @ORM\JoinColumn (name="calendar_id", referencedColumnName="id")
      */
     private $calendar;
+
+    /** @var \DateTimeInterface|null
+     *  @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    protected $createdAt;
+
+    /** @var \DateTimeInterface|null
+     *  @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    protected $updatedAt;
+
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime('now'));
+    }
 
     /**
      * @return Calendar
@@ -95,5 +116,20 @@ class Booking implements ResourceInterface
         $this->title = $title;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
+    {
+        $dateTimeNow = new \DateTime('now');
+
+        $this->setUpdatedAt($dateTimeNow);
+
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
     }
 }
