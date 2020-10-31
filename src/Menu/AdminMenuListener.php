@@ -11,26 +11,30 @@ final class AdminMenuListener
         $menu = $event->getMenu();
 
         $newSubmenu = $menu
-            ->addChild('new')
-            ->setLabel('Calendar & Booking')
+            ->addChild('rob_air_sylius_calendar_plugin')
+            ->setLabel('rob_air_sylius_calendar_plugin.menu.admin.item')
         ;
 
         $newSubmenu
-            ->addChild('booking')
-            ->setLabel('Bookings')
-            ->setUri('/admin/bookings')
-        ;
-
-        $newSubmenu
-            ->addChild('calendar')
-            ->setLabel('Calendars')
+            ->addChild('calendars')
+            ->setLabel('rob_air_sylius_calendar_plugin.menu.admin.calendar.header')
             ->setUri('/admin/calendars')
+            ->setLabelAttribute('icon', 'calendar outline')
+            ->setName('rob_air_sylius_calendar_plugin.menu.admin.calendar.header')
         ;
 
         $newSubmenu
-            ->addChild('attendant')
-            ->setLabel('Attendants')
+            ->addChild('bookings')
+            ->setLabel('rob_air_sylius_calendar_plugin.menu.admin.booking.header')
+            ->setUri('/admin/bookings')
+            ->setLabelAttribute('icon', 'calendar alternate outline')
+        ;
+
+        $newSubmenu
+            ->addChild('attendants')
+            ->setLabel('rob_air_sylius_calendar_plugin.menu.admin.attendant.header')
             ->setUri('/admin/attendants')
+            ->setLabelAttribute('icon', 'users')
         ;
     }
 }

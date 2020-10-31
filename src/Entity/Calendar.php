@@ -68,6 +68,22 @@ class Calendar implements ResourceInterface, TimestampableInterface
     protected $updatedAt;
 
     /**
+     * @return ArrayCollection|Attendant[]
+     */
+    public function getAssignedAttendants()
+    {
+        return $this->assignedAttendants;
+    }
+
+    /**
+     * @param ArrayCollection|Attendant[] $assignedAttendants
+     */
+    public function setAssignedAttendants($assignedAttendants): void
+    {
+        $this->assignedAttendants = $assignedAttendants;
+    }
+
+    /**
      * @return string
      */
     public function getColor(): string

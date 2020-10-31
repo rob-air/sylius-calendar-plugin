@@ -1,0 +1,23 @@
+rob_air_sylius_calendar_plugin:
+    ui:
+        calendar: Calendrier
+        calendars: Calendriers
+        booking: Activité
+        bookings: Activités
+        attendant: Accompagnant
+        attendants: Accompagnants
+        assigned_attendants: Référents
+        default_calendar: Calendrier par défaut
+
+    menu:
+        admin:
+            item: Réservations
+            calendar:
+                header: Calendriers
+                subheader: Gérer vos calendriers
+            booking:
+                header: Activités
+                subheader: Gérer vos activités ouvertes à la réservation
+            attendant:
+                header: Accompagnants
+                subheader: Gérer votre personnel accompagnant

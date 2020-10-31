@@ -13,11 +13,18 @@ sylius_grid:
                     type: datetime
                     label: sylius.ui.ends_at
                 calendar:
-                    type: string
-                    label: calendar
+                    type: twig
+                    label: rob_air_sylius_calendar_plugin.ui.calendar
+                    options:
+                        template: "@RobAirSyliusCalendarPlugin/Grid/Column/_calendar.html.twig"
                 title:
                     type: string
                     label: sylius.ui.title
+                attendants:
+                    type: twig
+                    label: rob_air_sylius_calendar_plugin.ui.attendants
+                    options:
+                        template: "@RobAirSyliusCalendarPlugin/Grid/Column/_collection.html.twig"
             actions:
                 main:
                     create:
@@ -38,8 +45,15 @@ sylius_grid:
                     type: string
                     label: sylius.ui.title
                 color:
-                    type: string
+                    type: twig
                     label: sylius.ui.color
+                    options:
+                        template: "@RobAirSyliusCalendarPlugin/Grid/Column/_color.html.twig"
+                assignedAttendants:
+                    type: twig
+                    label: rob_air_sylius_calendar_plugin.ui.assigned_attendants
+                    options:
+                        template: "@RobAirSyliusCalendarPlugin/Grid/Column/_collection.html.twig"
             actions:
                 main:
                     create:
@@ -69,7 +83,7 @@ sylius_grid:
                     label: sylius.ui.title
                 calendar:
                     type: string
-                    label: calendar
+                    label: rob_air_sylius_calendar_plugin.ui.calendar
             actions:
                 item:
                     show:
@@ -100,14 +114,12 @@ sylius_grid:
                     label: sylius.ui.name
                 defaultCalendar:
                     type: string
-                    label: sylius.ui.calendar
+                    label: rob_air_sylius_calendar_plugin.ui.default_calendar
             actions:
                 main:
                     create:
                         type: create
                 item:
-                    show:
-                        type: show
                     update:
                         type: update
                     delete:

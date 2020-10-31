@@ -1,0 +1,23 @@
+rob_air_sylius_calendar_plugin:
+    ui:
+        calendar: Calendar
+        calendars: Calendars
+        booking: Booking
+        bookings: Bookings
+        attendant: Attendant
+        attendants: Attendants
+        assigned_attendants: Assigned attendants
+        default_calendar: Default calendar
+
+    menu:
+        admin:
+            item: Reservations
+            calendar:
+                header: Calendars
+                subheader: Manage your calendars
+            booking:
+                header: Bookings
+                subheader: Manage your booking openings
+            attendant:
+                header: Attendants
+                subheader: Manage your attending personnel

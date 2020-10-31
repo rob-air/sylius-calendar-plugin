@@ -8,9 +8,10 @@ rob_air_sylius_calendar.admin.booking:
         grid: rob_air_sylius_calendar.admin.grid.booking
         vars:
             all:
-                subheader: rob_air_sylius_calendar.ui.booking
+                header: rob_air_sylius_calendar_plugin.menu.admin.booking.header
+                subheader: rob_air_sylius_calendar_plugin.menu.admin.booking.subheader
             index:
-                icon: 'file image outline'
+                icon: 'calendar alternate outline'
     type: sylius.resource
 
 rob_air_sylius_calendar.admin.calendar:
@@ -23,9 +24,10 @@ rob_air_sylius_calendar.admin.calendar:
         grid: rob_air_sylius_calendar.admin.grid.calendar
         vars:
             all:
-                subheader: rob_air_sylius_calendar.ui.calendar
+                header: rob_air_sylius_calendar_plugin.menu.admin.calendar.header
+                subheader: rob_air_sylius_calendar_plugin.menu.admin.calendar.subheader
             index:
-                icon: 'calendar image outline'
+                icon: 'calendar outline'
     type: sylius.resource
     
 rob_air_sylius_calendar.admin.attendant:
@@ -38,9 +40,10 @@ rob_air_sylius_calendar.admin.attendant:
         grid: rob_air_sylius_calendar.admin.grid.attendant
         vars:
             all:
-                subheader: rob_air_sylius_calendar.ui.attendant
+                header: rob_air_sylius_calendar_plugin.menu.admin.attendant.header
+                subheader: rob_air_sylius_calendar_plugin.menu.admin.attendant.subheader
             index:
-                icon: 'person image outline'
+                icon: 'users'
     type: sylius.resource
 
 rob_air_sylius_calendar.admin.booking.new:
@@ -61,7 +64,8 @@ rob_air_sylius_calendar.admin.booking.new:
                     validation_groups:
                         - sylius
             vars:
-                subheader: rob_air_sylius_calendar.ui.booking
+                header: rob_air_sylius_calendar_plugin.menu.admin.booking.header
+                subheader: rob_air_sylius_calendar_plugin.menu.admin.booking.subheader
 
 rob_air_sylius_calendar.admin.attendant.new:
     path: /attendants/new
@@ -81,4 +85,5 @@ rob_air_sylius_calendar.admin.attendant.new:
                     validation_groups:
                         - sylius
             vars:
-                subheader: rob_air_sylius_calendar.ui.attendant
+                header: rob_air_sylius_calendar_plugin.menu.admin.attendant.header
+                subheader: rob_air_sylius_calendar_plugin.menu.admin.attendant.subheader
