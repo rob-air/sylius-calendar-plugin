@@ -4,23 +4,13 @@ declare(strict_types=1);
 
 namespace RobAir\SyliusCalendarPlugin\Form\Type;
 
-use Sonata\Form\Type\DateTimePickerType;
+
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
-use Sylius\Bundle\ResourceBundle\Form\Type\DefaultResourceType;
-use Sylius\Bundle\ResourceBundle\Form\Type\ResourceAutocompleteChoiceType;
-use Sylius\Bundle\ResourceBundle\Form\Type\ResourceToIdentifierType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\CallbackTransformer;
-use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 final class BookingType extends AbstractResourceType
 {
@@ -40,8 +30,11 @@ final class BookingType extends AbstractResourceType
             ->add('title', TextType::class, [
                 'label' => 'sylius.ui.title'
             ])
+            ->add('maxAttendees', IntegerType::class, [
+                'label' => 'rob_air_sylius_calendar_plugin.ui.max_attendees'
+            ])
             ->add('calendar', EntityType::class, [
-                'label' => 'Calendar',
+                'label' => 'rob_air_sylius_calendar_plugin.ui.calendar',
                 'class' => 'RobAir\SyliusCalendarPlugin\Entity\Calendar',
                 'choice_label' => 'title',
                 'choice_value' => 'id'
