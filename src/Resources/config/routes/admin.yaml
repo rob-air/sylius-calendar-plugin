@@ -87,3 +87,25 @@ rob_air_sylius_calendar.admin.attendant.new:
             vars:
                 header: rob_air_sylius_calendar_plugin.menu.admin.attendant.header
                 subheader: rob_air_sylius_calendar_plugin.menu.admin.attendant.subheader
+
+rob_air_sylius_calendar.admin.booking.product.new:
+    path: /products/new/booking
+    methods: [GET, POST]
+    defaults:
+        _controller: sylius.controller.product:createAction
+        _sylius:
+            section: admin
+            permission: true
+                method: createWithVariantAndBooking
+            template: "@SyliusAdmin/Crud/create.html.twig"
+            redirect: sylius_admin_product_update
+            form:
+                options:
+                    validation_groups:
+                        - sylius
+            vars:
+                subheader: sylius.ui.manage_your_product_catalog
+                templates:
+                    form: "@SyliusAdmin/Product/_form.html.twig"
+                route:
+                    name: rob_air_sylius_calendar.admin.booking.product.new

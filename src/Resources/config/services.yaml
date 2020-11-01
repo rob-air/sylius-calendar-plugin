@@ -1,22 +1,5 @@
 services:
 
-#    rob_air_sylius_calendar.booking_controller:
-#        class: RobAir\SyliusCalendarPlugin\Controller\BookingController
-#        public: true
-#        tags: ['controller.service_arguments']
-#        arguments:
-#          [ 'Sylius\Component\Resource\Metadata\Metadata', '@sylius.resource_controller.request_configuration_factory', '@sylius.resource_controller.view_handler', '@sylius.repository.channel', '@sylius.factory.adjustment', '@sylius.resource_controller.new_resource_factory', 'Doctrine\Common\Persistence\ObjectManager', '@sylius.resource_controller.single_resource_provider', '@sylius.resource_controller.resources_collection_provider', '@sylius.resource_controller.form_factory', '@sylius.resource_controller.redirect_handler', '@sylius.resource_controller.flash_helper', '@sylius.resource_controller.authorization_checker.disabled', '@sylius.resource_controller.event_dispatcher', '@sylius.resource_controller.state_machine', '@sylius.custom_resource_controller.resource_update_handler.inner', '@sylius.resource_controller.resource_delete_handler' ]
-
-#    rob_air_sylius_calendar.calendar_controller:
-#        class: RobAir\SyliusCalendarPlugin\Controller\CalendarController
-#        public: true
-#        tags: ['controller.service_arguments']
-        
-    rob_air_sylius_calendar.listener.admin.menu_builder:
-        class: RobAir\SyliusCalendarPlugin\Menu\AdminMenuListener
-        tags:
-            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
-
     rob_air_sylius_calendar.subscriber.calendar:
         class: RobAir\SyliusCalendarPlugin\EventSubscriber\CalendarSubscriber
         autowire: true

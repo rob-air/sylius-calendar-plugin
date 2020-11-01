@@ -4,8 +4,7 @@ namespace RobAir\SyliusCalendarPlugin\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TimestampableInterface;
+use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 
 /**
@@ -13,7 +12,7 @@ use Sylius\Component\Resource\Model\TimestampableTrait;
  * @ORM\Table (name="robair_calendar_booking")
  * @ORM\HasLifecycleCallbacks()
  */
-class Booking implements ResourceInterface, TimestampableInterface
+class Booking implements BookingProductInterface
 {
 
     use TimestampableTrait;
@@ -23,29 +22,40 @@ class Booking implements ResourceInterface, TimestampableInterface
      * @ORM\GeneratedValue
      * @ORM\Id
      */
-    private $id;
+    protected $id;
+
+    /** @var ProductInterface
+     * @ORM\OneToOne (targetEntity="Sylius\Component\Product\Model\ProductInterface", inversedBy="booking")
+     * @ORM\JoinColumn (name="product_id", referencedColumnName="id")
+     */
+    protected $product;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $beginAt;
+    protected $beginAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $endAt = null;
+    protected $endAt = null;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    protected $title;
+
+    /**
+     * @var bool
+     */
+    protected $isBookingProduct = false;
 
     /**
      * @var Calendar
      * @ORM\ManyToOne (targetEntity="RobAir\SyliusCalendarPlugin\Entity\Calendar", inversedBy="bookings")
      * @ORM\JoinColumn (name="calendar_id", referencedColumnName="id")
      */
-    private $calendar;
+    protected $calendar;
 
     /**
      * @var Attendant[]|ArrayCollection
@@ -55,13 +65,48 @@ class Booking implements ResourceInterface, TimestampableInterface
      *      inverseJoinColumns={@ORM\JoinColumn(name="attendant_id", referencedColumnName="id")}
      * )
      */
-    private $attendants;
+    protected $attendants;
 
     /**
      * @var integer
      * @ORM\Column (type="smallint", nullable=false, options={"default"="10"})
      */
-    private $maxAttendees;
+    protected $maxAttendees;
+
+    /** @var \DateTimeInterface|null
+     *  @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    protected $createdAt;
+
+    /** @var \DateTimeInterface|null
+     *  @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    protected $updatedAt;
+
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime('now'));
+    }
+
+    public function getProduct(): ?ProductInterface
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?ProductInterface $product): void
+    {
+        $this->product = $product;
+    }
+
+    public function isBookingProduct(): bool
+    {
+        return $this->isBookingProduct;
+    }
+
+    public function setIsBookingProduct(bool $isBookingProduct): void
+    {
+        $this->isBookingProduct = $isBookingProduct;
+    }
 
     /**
      * @return int
@@ -93,21 +138,6 @@ class Booking implements ResourceInterface, TimestampableInterface
     public function setAttendants($attendants): void
     {
         $this->attendants = $attendants;
-    }
-
-    /** @var \DateTimeInterface|null
-     *  @ORM\Column(name="created_at", type="datetime", nullable=true)
-     */
-    protected $createdAt;
-
-    /** @var \DateTimeInterface|null
-     *  @ORM\Column(name="updated_at", type="datetime", nullable=true)
-     */
-    protected $updatedAt;
-
-    public function __construct()
-    {
-        $this->setCreatedAt(new \DateTime('now'));
     }
 
     /**

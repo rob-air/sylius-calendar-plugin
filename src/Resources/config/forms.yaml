@@ -19,3 +19,15 @@ services:
     #    class: RobAir\SyliusCalendarPlugin\Form\Extension\CalendarTypeExtension
     #    tags:
     #        - { name: form.type_extension, extended_type: Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType }
+
+    rob_air_sylius_calendar.form.type.booking_product:
+        class: RobAir\SyliusCalendarPlugin\Form\Type\BookingProductType
+        arguments:
+            - "%rob_air_sylius_calendar.model.booking.class%"
+        tags:
+            - { name: form.type }
+
+    rob_air_sylius_calendar.form.extension.type.product:
+        class: RobAir\SyliusCalendarPlugin\Form\Extension\ProductTypeExtension
+        tags:
+            - { name: form.type_extension, extended-type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }

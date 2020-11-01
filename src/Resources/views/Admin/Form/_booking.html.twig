@@ -1,0 +1,10 @@
+{% form_theme form '@RobAirSyliusCalendarPlugin/Admin/Form/bookingProductItem.html.twig' %}
+
+<div class="ui tab" data-tab="booking">
+
+    {% dump form %}
+{#    {{ form_row(form.Booking.isBooking) }}#}
+{#    {{ form_row(form.booking.booking) }}#}
+
+    {{ sonata_block_render_event('sylius.admin.product.' ~ action ~ '.tab_booking', {'form': form }) }}
+</div>

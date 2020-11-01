@@ -1,5 +1,7 @@
 imports:
     - { resource: "@RobAirSyliusCalendarPlugin/Resources/config/services.yaml" }
     - { resource: "@RobAirSyliusCalendarPlugin/Resources/config/resources.yaml" }
+    - { resource: "@RobAirSyliusCalendarPlugin/Resources/config/factories.yaml" }
     - { resource: "@RobAirSyliusCalendarPlugin/Resources/config/forms.yaml" }
     - { resource: "@RobAirSyliusCalendarPlugin/Resources/config/grids.yaml" }
+    - { resource: "@RobAirSyliusCalendarPlugin/Resources/config/menus.yaml" }

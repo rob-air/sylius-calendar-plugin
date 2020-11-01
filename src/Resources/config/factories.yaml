@@ -1,0 +1,15 @@
+services:
+    
+    rob_air_sylius_calendar.booking.factory:
+        class: RobAir\SyliusCalendarPlugin\Factory\BookingFactory
+        arguments:
+            - 'RobAir\SyliusCalendarPlugin\Entity\Booking'
+    
+
+    rob_air_sylius_calendar.custom_factory.product:
+        class: RobAir\SyliusCalendarPlugin\Factory\ProductFactory
+        decorates: 'sylius.factory.product'
+        public: false
+        arguments:
+            - '@rob_air_sylius_calendar.custom_factory.product.inner'
+            - '@rob_air_sylius_calendar.booking.factory'
