@@ -96,6 +96,8 @@ rob_air_sylius_calendar.admin.booking.product.new:
         _sylius:
             section: admin
             permission: true
+            factory:
+#                class: RobAir\SyliusCalendarPlugin\Factory\ProductFactory
                 method: createWithVariantAndBooking
             template: "@SyliusAdmin/Crud/create.html.twig"
             redirect: sylius_admin_product_update

@@ -14,9 +14,9 @@ final class AdminProductFormMenuListener
         /** @var ProductInterface $product */
         $product = $event->getProduct();
 
-//        if (!$product->isBooking()) {
-//            return;
-//        }
+        if (!$product->hasBooking()) {
+            return;
+        }
 
         $menu = $event->getMenu();
 

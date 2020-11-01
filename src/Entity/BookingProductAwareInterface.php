@@ -6,7 +6,7 @@ namespace RobAir\SyliusCalendarPlugin\Entity;
 
 interface BookingProductAwareInterface
 {
-    public function isBookingProduct(): bool;
+    public function hasBooking(): bool;
 
     public function setBooking(BookingProductInterface $booking): void;
 

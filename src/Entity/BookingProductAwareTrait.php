@@ -11,15 +11,9 @@ trait BookingProductAwareTrait
      */
     protected $booking;
 
-    /**
-     * @var bool
-     */
-    protected $isBookingProduct = false;
-
     public function setBooking(BookingProductInterface $booking): void
     {
         $this->booking = $booking;
-        $this->setIsBookingProduct(true);
     }
 
     public function getBooking(): BookingProductInterface
@@ -27,14 +21,10 @@ trait BookingProductAwareTrait
         return $this->booking;
     }
 
-    public function isBookingProduct(): bool
+    public function hasBooking(): bool
     {
-        return $this->isBookingProduct;
+        return null !== $this->booking;
     }
 
-    public function setIsBookingProduct(bool $isBookingProduct): void
-    {
-        $this->isBookingProduct = $isBookingProduct;
-    }
 
 }

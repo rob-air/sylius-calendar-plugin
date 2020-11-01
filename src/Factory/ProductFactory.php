@@ -16,25 +16,25 @@ final class ProductFactory implements ProductFactoryInterface
     private $decoratedFactory;
 
     /** @var FactoryInterface */
-    private $bookingProductFactory;
+    private $bookingFactory;
 
-    public function __construct(DecoratedProductFactoryInterface $decoratedFactory, FactoryInterface $bookingProductFactory)
+    public function __construct(DecoratedProductFactoryInterface $decoratedFactory, FactoryInterface $bookingFactory)
     {
         $this->decoratedFactory = $decoratedFactory;
-        $this->bookingProductFactory = $bookingProductFactory;
+        $this->bookingFactory = $bookingFactory;
     }
 
     public function createWithVariantAndBooking(): BaseProductInterface
     {
-        /** @var BookingProductInterface $bookingProduct */
-        $bookingProduct = $this->bookingProductFactory->createNew();
+        /** @var BookingProductInterface $booking */
+        $booking = $this->bookingFactory->createNew();
 
         /** @var ProductInterface $product */
         $product = $this->createWithVariant();
 
-        $bookingProduct->setProduct($product);
+        $booking->setProduct($product);
 
-        $product->setBooking($bookingProduct);
+        $product->setBooking($booking);
 
 //        dd($product);
         return $product;

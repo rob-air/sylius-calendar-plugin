@@ -46,11 +46,6 @@ class Booking implements BookingProductInterface
     protected $title;
 
     /**
-     * @var bool
-     */
-    protected $isBookingProduct = false;
-
-    /**
      * @var Calendar
      * @ORM\ManyToOne (targetEntity="RobAir\SyliusCalendarPlugin\Entity\Calendar", inversedBy="bookings")
      * @ORM\JoinColumn (name="calendar_id", referencedColumnName="id")
@@ -96,16 +91,6 @@ class Booking implements BookingProductInterface
     public function setProduct(?ProductInterface $product): void
     {
         $this->product = $product;
-    }
-
-    public function isBookingProduct(): bool
-    {
-        return $this->isBookingProduct;
-    }
-
-    public function setIsBookingProduct(bool $isBookingProduct): void
-    {
-        $this->isBookingProduct = $isBookingProduct;
     }
 
     /**

@@ -4,7 +4,6 @@ services:
         class: RobAir\SyliusCalendarPlugin\Factory\BookingFactory
         arguments:
             - 'RobAir\SyliusCalendarPlugin\Entity\Booking'
-    
 
     rob_air_sylius_calendar.custom_factory.product:
         class: RobAir\SyliusCalendarPlugin\Factory\ProductFactory

@@ -1,10 +1,12 @@
 {% form_theme form '@RobAirSyliusCalendarPlugin/Admin/Form/bookingProductItem.html.twig' %}
 
 <div class="ui tab" data-tab="booking">
+    <h3 class="ui top attached header">{{ 'rob_air_sylius_calendar_plugin.ui.booking'|trans }}</h3>
+    <div class="ui attached segment">
+        {% dump form %}
+        {#    {{ form_row(form.Booking.isBooking) }}#}
+        {{ form_row(form.booking) }}
 
-    {% dump form %}
-{#    {{ form_row(form.Booking.isBooking) }}#}
-{#    {{ form_row(form.booking.booking) }}#}
-
-    {{ sonata_block_render_event('sylius.admin.product.' ~ action ~ '.tab_booking', {'form': form }) }}
+        {{ sonata_block_render_event('sylius.admin.product.' ~ action ~ '.tab_booking', {'form': form }) }}
+    </div>
 </div>
